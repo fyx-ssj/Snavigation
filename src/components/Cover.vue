@@ -33,7 +33,6 @@ const bgRandom = Math.floor(Math.random() * 3 + 1);
 // 赋值壁纸
 const setBgUrl = () => {
   bgUrl.value = `/background/bg${bgRandom}.jpg`;
-  }
 };
 
 // 图片加载完成
