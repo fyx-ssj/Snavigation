@@ -11,54 +11,6 @@
             </div>
             <n-select class="set" v-model:value="themeType" :options="themeTypeOptions" />
           </n-card>
-          <n-card
-            class="set-item cover"
-            :content-style="{
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-            }"
-          >
-            <div class="desc">
-              <div class="name">
-                <span class="title">壁纸偏好</span>
-                <span class="tip"> 除默认以外的其他选项可能会导致页面载入缓慢 </span>
-              </div>
-              <n-space>
-                <Transition name="fade" mode="out-in">
-                  <n-button
-                    v-if="backgroundType !== 0"
-                    strong
-                    secondary
-                    @click="changeBackground(0, true)"
-                  >
-                    恢复默认
-                  </n-button>
-                </Transition>
-                <n-button strong secondary @click="customCoverModal = true">
-                  <template v-if="backgroundType === 4" #icon>
-                    <SvgIcon iconName="icon-confirm" />
-                  </template>
-                  {{ backgroundType === 4 ? "已开启自定义" : "自定义" }}
-                </n-button>
-              </n-space>
-            </div>
-            <n-grid
-              class="cover-selete"
-              responsive="screen"
-              cols="2 s:3 m:4 l:4"
-              :x-gap="16"
-              :y-gap="16"
-            >
-              <n-grid-item
-                v-for="(item, index) in backgroundTypeArr"
-                :key="index"
-                :class="index === backgroundType ? 'item check' : 'item'"
-                @click="changeBackground(index)"
-              >
-                <span class="name" v-html="item.name" />
-              </n-grid-item>
-            </n-grid>
-          </n-card>
           <n-h6 prefix="bar"> 搜索 </n-h6>
           <n-card class="set-item">
             <div class="name">
