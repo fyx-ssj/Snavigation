@@ -5,7 +5,7 @@
     <!-- 主界面 -->
     <Transition name="fade" mode="out-in">
       <main
-        v-if="status.imgLoadStatus"
+        v-if="true"
         tabindex="0"
         id="main"
         :class="`main-${status.siteStatus}`"
