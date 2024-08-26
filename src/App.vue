@@ -3,9 +3,9 @@
     <!-- 壁纸 -->
     <Cover @loadComplete="loadComplete" />
     <!-- 主界面 -->
-    <Transition name="fade" mode="out-in">
+    <!--<Transition name="fade" mode="out-in">  -->
       <main
-        v-if="true"
+        # v-if="true"
         tabindex="0"
         id="main"
         :class="`main-${status.siteStatus}`"
@@ -19,7 +19,7 @@
         <AllFunc @contextmenu.stop />
         <Footer />
         <!-- 状态切换 -->
-        <Transition name="fade">
+        <!-- <Transition name="fade"> -->
           <div
             class="all-controls"
             v-show="status.siteStatus !== 'focus' && status.siteStatus !== 'normal'"
@@ -29,29 +29,29 @@
               :title="status.mainBoxBig ? '收起' : '展开'"
               @click.stop="status.setMainBoxBig(!status.mainBoxBig)"
             >
-              <Transition name="fade" mode="out-in">
+              <!--  <Transition name="fade" mode="out-in"> -->
                 <SvgIcon
                   :iconName="`icon-${status.mainBoxBig ? 'packup' : 'unfold'}`"
                   :key="status.mainBoxBig ? 'packup' : 'unfold'"
-                />
-              </Transition>
+                /> 
+              <!--  </Transition>  -->
             </div>
             <div
               class="change-status"
               :title="status.siteStatus !== 'set' ? '设置' : '首页'"
               @click.stop="status.setSiteStatus(status.siteStatus !== 'set' ? 'set' : 'normal')"
             >
-              <Transition name="fade" mode="out-in">
+              <!-- <Transition name="fade" mode="out-in">  -->
                 <SvgIcon
                   :iconName="`icon-${status.siteStatus !== 'set' ? 'setting' : 'home'}`"
                   :key="status.siteStatus !== 'set' ? 'setting' : 'home'"
                 />
-              </Transition>
+              <!--  </Transition>  -->
             </div>
           </div>
-        </Transition>
-      </main>
-    </Transition>
+        <!--  </Transition>  -->
+      </main> 
+    <!--  </Transition>  -->
   </Provider>
 </template>
 
@@ -87,6 +87,7 @@ const loadComplete = () => {
       showIcon: false,
       duration: 3000,
     });
+    status.setSiteStatus("normal"); 
   });
 };
 
