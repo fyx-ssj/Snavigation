@@ -3,9 +3,7 @@
     <!-- 壁纸 -->
     <Cover @loadComplete="loadComplete" />
     <!-- 主界面 -->
-    <!--<Transition name="fade" mode="out-in">  -->
       <main
-        # v-if="true"
         tabindex="0"
         id="main"
         :class="`main-${status.siteStatus}`"
@@ -19,39 +17,29 @@
         <AllFunc @contextmenu.stop />
         <Footer />
         <!-- 状态切换 -->
-        <!-- <Transition name="fade"> -->
-          <div
-            class="all-controls"
-            v-show="status.siteStatus !== 'focus' && status.siteStatus !== 'normal'"
-          >
+          <div class="all-controls">
             <div
               class="change-status"
               :title="status.mainBoxBig ? '收起' : '展开'"
               @click.stop="status.setMainBoxBig(!status.mainBoxBig)"
             >
-              <!--  <Transition name="fade" mode="out-in"> -->
                 <SvgIcon
                   :iconName="`icon-${status.mainBoxBig ? 'packup' : 'unfold'}`"
                   :key="status.mainBoxBig ? 'packup' : 'unfold'"
                 /> 
-              <!--  </Transition>  -->
             </div>
             <div
               class="change-status"
               :title="status.siteStatus !== 'set' ? '设置' : '首页'"
               @click.stop="status.setSiteStatus(status.siteStatus !== 'set' ? 'set' : 'normal')"
             >
-              <!-- <Transition name="fade" mode="out-in">  -->
                 <SvgIcon
                   :iconName="`icon-${status.siteStatus !== 'set' ? 'setting' : 'home'}`"
                   :key="status.siteStatus !== 'set' ? 'setting' : 'home'"
                 />
-              <!--  </Transition>  -->
             </div>
           </div>
-        <!--  </Transition>  -->
       </main> 
-    <!--  </Transition>  -->
   </Provider>
 </template>
 
