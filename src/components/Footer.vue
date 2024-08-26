@@ -2,7 +2,7 @@
   <footer id="footer" @click.stop>
     <div class="copyright">
       <span class="site-name">一个简单的起始页/span>
-      <span class="year">© 2023 - 2024</span>
+      <span class="year">2023 - 2024</span>
       <span v-if="icp" class="icp" @click="jumpTo('https://beian.miit.gov.cn')">
         {{ icp }}
       </span>
